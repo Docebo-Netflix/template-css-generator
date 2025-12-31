@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copy Template CSS</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Netflix CSS Generator</title>
-<style>
+  <style>
 
 
-body {
-      font-family: Arial, sans-serif;
+    body {
       font-family: "Arial, Netflix Sans", Helvetica, sans-serif;
       background-color: #f2efe8;
       display: flex;
@@ -23,16 +19,11 @@ body {
     .card {
       background-color: #fff;
       border-radius: 16px;
-padding: 30px;
-      background-color: #f9f9f9;
+      padding: 30px;
       max-width: 640px;
       width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-    .copy-container {
-      text-align: center;
-      margin: 50px auto;
+    }
     h1 {
       font-family: "Arial";
       font-weight: 700;
@@ -44,7 +35,7 @@ padding: 30px;
       font-size: 16px;
       color: #221f1f;
       font-family: "Arial";
-}
+    }
 
     label, .url-text {
       font-size: 16px;
@@ -62,38 +53,26 @@ padding: 30px;
       padding: 8px;
       font-size: 14px;
     }
-#copy-css-btn {
-      background-color: #0072ce;
+    #copy-css-btn {
       background-color: #e50914;
-color: white;
-border: none;
-padding: 12px 24px;
-      border-radius: 6px;
+      color: white;
+      border: none;
+      padding: 12px 24px;
       border-radius: 25px;
-font-size: 16px;
-cursor: pointer;
-      transition: background-color 0.3s;
+      font-size: 16px;
+      cursor: pointer;
       float: right;
-}
-
-    #copy-css-btn:hover {
-      background-color: #005a9c;
     }
-
-#copy-feedback {
-      margin-left: 10px;
-      font-weight: bold;
-      color: green;
+    #copy-feedback {
       font-size: 14px;
       color: e50914;
-display: none;
+      display: none;
       margin-top: 15px;
       clear: both;
-}
-</style>
+    }
+  </style>
 </head>
 <body>
-  <div class="copy-container">
   <div class="card">
     <h1>Netflix Template CSS Generator</h1>
     <div class="content">
@@ -103,72 +82,57 @@ display: none;
       <span class="url-text">https://learn.netflix.net/pages/</span>
       <input type="text" id="page-number-input" maxlength="3" placeholder="e.g.123" />
     </div><br/><br/>
-<button id="copy-css-btn">Copy Template CSS</button>
-    <span id="copy-feedback">CSS copied!</span>
+    <button id="copy-css-btn">Copy Template CSS</button>
     <div id="copy-feedback">CSS copied to clipboard!</div>
-</div>
+  </div>
 
-<script>
+  <script>
     const copyBtn = document.getElementById('copy-css-btn');
     const feedback = document.getElementById('copy-feedback');
     const input = document.getElementById('page-number-input');
 
-const templateCSS = `
-/* Template CSS - 100 lines */
+    const templateCSS = `
 /* Template CSS */
 /* Page pageNumber Settings */
 #doc-page-pageNumber{background-color:#f2efe8;font-family:Netflix Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color:#34322e}
-
-/* HTML Widget Typography */
 #doc-page-pageNumber .htmlwidget p{font-size:16px;font-weight:200;line-height:1.5;margin:0;padding:14px 0 0 0}
 #doc-page-pageNumber .htmlwidget h1{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:pageNumberpx;font-weight:900;line-height:1;overflow:hidden}
 #doc-page-pageNumber .htmlwidget h2{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:122px;font-weight:900;line-height:1.1;letter-spacing:-0.015em;overflow:visible!important;margin:0 0 20px 0;padding:10px 0;word-wrap:break-word;overflow-wrap:break-word}
 #doc-page-pageNumber .htmlwidget h3{font-family:"Netflix Sans",Helvetica Neue,Helvetica,Arial,sans-serif;font-size:42px;font-weight:600;line-height:1.2}
 #doc-page-pageNumber .htmlwidget li{font-size:16px;padding-bottom:10px}
-
-/* Widget Title Removal */
 #doc-page-pageNumber .common-widget-title,#doc-page-pageNumber .single-widget widget-title{display:none}
-
-/* Custom Content Box Widgets */
 #doc-page-pageNumber custom-content-box-widget .background-content{border-radius:40px;justify-content:end;padding:50px}
 #doc-page-pageNumber custom-content-box-widget .titles-container{max-width:600px}
 #doc-page-pageNumber custom-content-box-widget .title{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:70px;line-height:1;letter-spacing:-0.02em}
 #doc-page-pageNumber custom-content-box-widget .subtitle{font-family:"Netflix Sans",Helvetica Neue,Helvetica,Arial,sans-serif!important;font-size:18px;line-height:1.5;margin-top:8px}
 #doc-page-pageNumber custom-content-box-widget button{font-family:"Netflix Sans Ex",Helvetica Neue,Helvetica,Arial,sans-serif!important;font-size:14px;text-transform:uppercase!important;letter-spacing:0.1em;border-radius:25px;min-width:0;height:50px;padding:0 30px}
 #doc-page-pageNumber custom-content-box-widget custom-content-box-button{margin-bottom:0;margin-top:55px}
-
-/* Carousel Styling */
 #doc-page-pageNumber .ui-carousel-description p,#doc-page-pageNumber .ui-carousel-title{color:#171821!important}
 #doc-page-pageNumber .ui-carousel-chunk-info{color:rgba(0,0,0,0.3)!important}
 #doc-page-pageNumber .ui-carousel-header ui-button-fab button{background:rgba(0,0,0,0.3)!important}
 #doc-page-pageNumber .ui-carousel-header ui-button-fab{border-left:2px solid rgba(0,0,0,0.3)!important}
 #doc-page-pageNumber .ui-carousel-header ui-button-fab:first-child{border:none!important}
 #doc-page-pageNumber .ui-carousel-info,#doc-page-pageNumber .ui-data-browser-controls-bar{display:none}
-
-/* Card Styling */
 #doc-page-pageNumber .ui-card-header{-webkit-clip-path:inset(0px round 14px);clip-path:inset(0px round 14px)}
 #doc-page-pageNumber .ui-card-wrapper{border-radius:14px;background-color:rgba(255,255,255,0.95)}
 #doc-page-pageNumber .ui-card-footer ui-icon{display:none!important}
-@@ -91,24 +126,23 @@
+#doc-page-pageNumber .ui-card-header-badge-primary{right:7px;top:3px}
+#doc-page-pageNumber .ui-card-footer:before{border:none!important}
+#doc-page-pageNumber .ui-card-footer{top:-164px;padding:0 16px;height:14px}
+#doc-page-pageNumber .ui-card-content{padding:26px 16px 0px 16px;height:175px}
+#doc-page-pageNumber .ui-card-item-type{padding:0}
+#doc-page-pageNumber .ui-card-title a,#doc-page-pageNumber .ui-card-title-locked{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:800;font-size:24px;line-height:1.2}
 #doc-page-pageNumber .ui-card-item-type span{color:rgba(20,19,24,0.65);font-weight:800!important;font-family:"Netflix Sans Ex",Helvetica Neue,Helvetica,Arial,sans-serif!important;font-size:9px;text-transform:uppercase!important;letter-spacing:0.07em}
 #doc-page-pageNumber .ui-card-language,#doc-page-pageNumber .ui-card-separator,#doc-page-pageNumber .ui-card-duration{color:rgb(189,188,188)!important}
 #doc-page-pageNumber .ui-card-separator{background-color:rgb(189,188,188)!important}
-
-/* Badge Styling */
 #doc-page-pageNumber .ui-badge-status-wrapper{border-radius:16px!important;padding:6px 10px!important}
 #doc-page-pageNumber .ui-badge-status-neutral{background-color:#c5c5c5}
-
-/* Stacked Card Effects */
 #doc-page-pageNumber ui-card.ui-card-stacked .ui-card-wrapper:after{left:7.5%;right:7.5%}
 #doc-page-pageNumber ui-card.ui-card-stacked .ui-card-wrapper:before{left:5.5%;right:5.5%}
 /* End of template */
-   `;
+    `;
 
-    const copyBtn = document.getElementById('copy-css-btn');
-    const feedback = document.getElementById('copy-feedback');
-
-copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(templateCSS)
+    copyBtn.addEventListener('click', () => {
       const val = input.value.trim();
       if (!/^[0-9]{3}$/.test(val)) {
         alert('Please enter a valid 3-digit number.');
@@ -176,9 +140,12 @@ copyBtn.addEventListener('click', () => {
       }
       const css = templateCSS.replace(/pageNumber/g, val);
       navigator.clipboard.writeText(css)
-.then(() => {
-          feedback.style.display = 'inline';
+        .then(() => {
           feedback.style.display = 'block';
-setTimeout(() => feedback.style.display = 'none', 2000);
-})
-.catch(err => alert('Failed to copy CSS: ' + err));
+          setTimeout(() => feedback.style.display = 'none', 2000);
+        })
+        .catch(err => alert('Failed to copy CSS: ' + err));
+    });
+  </script>
+</body>
+</html>

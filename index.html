@@ -4,9 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Netflix CSS Generator</title>
+
+  <!--
+    NEW-NAVIGATION (October 2026) STATUS — read before editing
+    ---------------------------------------------------------------
+    This template is scoped entirely to #doc-page-<id>, which SURVIVES the
+    new-nav migration (confirmed: DevTools shows id="doc-page-58" under the
+    new nav). It contains NO #doc-layout selectors, so the
+    :is(#doc-layout, app-layout) broadening used on the main stylesheet does
+    not apply here — there is nothing to broaden.
+
+    The only new-nav risk is the inner Docebo widget class names. If Docebo
+    renamed any of these in the October release, the matching rule silently
+    stops applying (cosmetic only — the page does not break). VERIFY these on a
+    live new-nav custom page in DevTools and swap any that changed:
+      - custom-content-box-widget  (.background-content .title .subtitle etc.)
+      - .ui-card-*                 (.ui-card-wrapper .ui-card-title etc.)
+      - .ui-carousel-*             (.ui-carousel-title .ui-carousel-header etc.)
+      - .ui-data-browser-controls-bar
+      - .ui-badge-status-*
+      - .htmlwidget                (already confirmed .single-widget persists)
+    Docebo's official "New Navigation System – CSS reference" lists the current
+    class hierarchy if you'd rather cross-check there.
+  -->
+
   <style>
-
-
     body {
       font-family: "Arial, Netflix Sans", Helvetica, sans-serif;
       background-color: #f2efe8;
@@ -49,7 +71,7 @@
       margin-bottom: 20px;
     }
     .url-input input {
-      width: 100px;
+      width: 140px;               /* widened: cramped at 100px */
       padding: 8px;
       font-size: 14px;
     }
@@ -65,7 +87,7 @@
     }
     #copy-feedback {
       font-size: 14px;
-      color: e50914;
+      color: #e50914;             /* fixed: was "e50914" (missing #, invalid) */
       display: none;
       margin-top: 15px;
       clear: both;
@@ -76,11 +98,11 @@
   <div class="card">
     <h1>Netflix Template CSS Generator</h1>
     <div class="content">
-      Enter your 3-digit Page ID to generate and copy your custom Docebo CSS.
+      Enter your Docebo Page ID to generate and copy your custom Docebo CSS.
     </div><br/><br/><br/>
     <div class="url-input">
       <span class="url-text">https://learn.netflix.net/pages/</span>
-      <input type="text" id="page-number-input" maxlength="3" placeholder="e.g.123" />
+      <input type="text" id="page-number-input" maxlength="6" placeholder="e.g. 58" />
     </div><br/><br/>
     <button id="copy-css-btn">Copy Template CSS</button>
     <div id="copy-feedback">CSS copied to clipboard!</div>
@@ -96,11 +118,11 @@
 /* Page pageNumber Settings */
 #doc-page-pageNumber{background-color:#f2efe8;font-family:Netflix Sans,Helvetica Neue,Helvetica,Arial,sans-serif;color:#34322e}
 #doc-page-pageNumber .htmlwidget p{font-size:16px;font-weight:200;line-height:1.5;margin:0;padding:14px 0 0 0}
-#doc-page-pageNumber .htmlwidget h1{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:pageNumberpx;font-weight:900;line-height:1;overflow:hidden}
+#doc-page-pageNumber .htmlwidget h1{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:120px;font-weight:900;line-height:1;overflow:hidden}
 #doc-page-pageNumber .htmlwidget h2{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:122px;font-weight:900;line-height:1.1;letter-spacing:-0.015em;overflow:visible!important;margin:0 0 20px 0;padding:10px 0;word-wrap:break-word;overflow-wrap:break-word}
 #doc-page-pageNumber .htmlwidget h3{font-family:"Netflix Sans",Helvetica Neue,Helvetica,Arial,sans-serif;font-size:42px;font-weight:600;line-height:1.2}
 #doc-page-pageNumber .htmlwidget li{font-size:16px;padding-bottom:10px}
-#doc-page-pageNumber .common-widget-title,#doc-page-pageNumber .single-widget widget-title{display:none}
+#doc-page-pageNumber .common-widget-title,#doc-page-pageNumber .single-widget .widget-title{display:none}
 #doc-page-pageNumber custom-content-box-widget .background-content{border-radius:40px;justify-content:end;padding:50px}
 #doc-page-pageNumber custom-content-box-widget .titles-container{max-width:600px}
 #doc-page-pageNumber custom-content-box-widget .title{font-family:'Netflix Sans UCd','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:70px;line-height:1;letter-spacing:-0.02em}
@@ -134,8 +156,9 @@
 
     copyBtn.addEventListener('click', () => {
       const val = input.value.trim();
-      if (!/^[0-9]{3}$/.test(val)) {
-        alert('Please enter a valid 3-digit number.');
+      // Accept any numeric Docebo page ID (IDs are not always 3 digits — e.g. page 58).
+      if (!/^[0-9]{1,6}$/.test(val)) {
+        alert('Please enter a valid page ID (numbers only).');
         return;
       }
       const css = templateCSS.replace(/pageNumber/g, val);

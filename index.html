@@ -75,18 +75,21 @@
     }
     .segmented {
       display: inline-flex;
+      width: 220px;               /* fixed width so both toggles match */
       border: 1px solid #d9d5cc;
       border-radius: 22px;
       overflow: hidden;
     }
     .segmented button {
+      flex: 1 1 0;                /* each button takes half the group width */
       font-family: "Arial";
       font-size: 14px;
       border: none;
       background: transparent;
       color: #555;
-      padding: 8px 18px;
+      padding: 8px 0;
       cursor: pointer;
+      text-align: center;
     }
     .segmented button.active {
       background: #221f1f;
@@ -135,8 +138,8 @@
     <div class="toggle-row">
       <span class="toggle-label">Environment</span>
       <div class="segmented" id="env-toggle">
-        <button data-env="sandbox" class="active">Sandbox</button>
-        <button data-env="discover">Discover</button>
+        <button data-env="discover" class="active">Discover</button>
+        <button data-env="sandbox">Sandbox</button>
       </div>
     </div>
 
@@ -153,7 +156,7 @@
     </div>
 
     <div class="url-input">
-      <span class="url-text" id="url-text">https://netflixsandbox.docebosaas.com/pages/</span>
+      <span class="url-text" id="url-text">https://learn.netflix.net/pages/</span>
       <input type="text" id="page-number-input" maxlength="6" placeholder="e.g. 58" />
     </div>
 
@@ -167,7 +170,7 @@
     const input    = document.getElementById('page-number-input');
     const urlText  = document.getElementById('url-text');
 
-    const state = { env: 'sandbox', theme: 'light' };
+    const state = { env: 'discover', theme: 'light' };
 
     const urls = {
       sandbox:  'https://netflixsandbox.docebosaas.com/pages/',
